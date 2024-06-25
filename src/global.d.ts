@@ -1,5 +1,5 @@
 interface Window {
-  electronAPI: {
-      readFile: (filePath: string) => Promise<string>;
-  };
+	electronAPI: {
+		readFile: (filePath: string) => Promise<string>;
+	};
 }
