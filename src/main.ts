@@ -1,8 +1,8 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
-const path = require("path");
-const fs = require("fs");
+import { app, BrowserWindow, ipcMain }  from "electron";
+import path from "path";
+import fs from "fs";
 
-async function handleReadFile(event, filePath) {
+async function handleReadFile(event: Electron.IpcMainInvokeEvent, filePath: string) {
     try {
         return fs.promises.readFile(filePath, "utf-8");
     } catch (err) {
@@ -25,7 +25,7 @@ const createWindow = () => {
     mainWindow.loadFile("public/index.html");
 
     // Open DevTools in development mode
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 };
 
 app.whenReady().then(() => {

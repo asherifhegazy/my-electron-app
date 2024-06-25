@@ -2,15 +2,15 @@
   "name": "my-electron-app",
   "version": "1.0.0",
   "description": "Test ElectronJS",
-  "main": "src/main.js",
+  "main": "dist/main.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "tsc && electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "package": "tsc && electron-forge package",
+    "make": "tsc && electron-forge make"
   },
   "author": "Ahmed Sherif",
   "license": "ISC",
@@ -23,11 +23,15 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
     "@electron-forge/plugin-fuses": "^7.4.0",
     "@electron/fuses": "^1.8.0",
+    "@types/electron": "^1.6.10",
+    "@types/electron-squirrel-startup": "^1.0.2",
+    "@types/node": "^20.14.8",
     "electron": "^30.0.9",
     "eslint": "^9.4.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-node": "^11.1.0",
-    "prettier": "^3.3.1"
+    "prettier": "^3.3.1",
+    "typescript": "^5.5.2"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1"

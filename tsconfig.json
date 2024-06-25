@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6",                       // Target JavaScript version
+    "module": "commonjs",                 // Module system for Electron's backend
+    "outDir": "dist",                     // Output directory for compiled JavaScript
+    "strict": true,                        // Enable strict type checking 
+    "esModuleInterop": true,              // Improves compatibility with CommonJS modules
+    "skipLibCheck": true,                  // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts", "src/global.d.ts"],             // Include all TypeScript files in the src directory
+  "exclude": ["node_modules"]               // Exclude node_modules
+}
