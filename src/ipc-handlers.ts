@@ -1,7 +1,19 @@
 import { ipcMain } from "electron";
-import { readJsonFile } from "./utils/files-utils";
+import { FileUtils } from "./utils/file-utils";
 
-export function registerIpcHandlers() {
-  ipcMain.handle("read-file", (_, filePath: string) => readJsonFile(filePath));
-  // You'll add more handlers here in the future
+export class IpcHandler {
+  constructor() {
+    this.registerHandlers(); // Automatically register handlers upon creation
+  }
+
+  private registerHandlers(): void {
+    ipcMain.handle("read-file", (_, filePath: string) =>
+      FileUtils.readJsonFile(filePath),
+    );
+    // Add more handlers as needed...
+  }
+
+  // Add more handler methods (private or public as needed)
+  // private handleOtherEvent(...): void { ... }
+  // public somePublicMethod(...): void { ... }
 }
