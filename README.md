@@ -6,9 +6,10 @@ This is a simple Electron application designed to read and display JSON files. T
 
 ## Features
 
-- Select and read JSON files from the local filesystem.
+- Select folder and read JSON files from it.
 - Display the content of the JSON files in a formatted manner.
-- Uses Electron's IPC (Inter-Process Communication) to handle file reading in the main process.
+- Watch a folder for changes to JSON files and update the content in real-time.
+- Uses Electron's IPC (Inter-Process Communication) to handle file operations in the main process.
 
 ## Project Structure
 my-electron-app/
