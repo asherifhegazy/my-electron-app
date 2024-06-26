@@ -1,18 +1,29 @@
-const fileInput = document.getElementById("fileInput") as HTMLInputElement;
+const folderInput = document.getElementById("folderInput") as HTMLInputElement;
+const folderSelectionStatus = document.getElementById('folderSelectionStatus');
 const jsonContent = document.getElementById(
   "jsonContent",
 ) as HTMLTextAreaElement;
 
-fileInput.addEventListener("change", async (event: Event) => {
-  const target = event.target as HTMLInputElement; // Cast to HTMLInputElement
-  const file = target.files?.[0];
-  if (file) {
-    try {
-      const jsonData = await window.electronAPI.readJsonFile(file.path);
-      jsonContent.value = JSON.stringify(jsonData, null, 2);
-    } catch (error) {
-      jsonContent.value = "Error reading or parsing file!";
-      console.error(error);
+let jsonData: object = {};
+
+folderInput.addEventListener('click', async (event: Event) => {
+  event.preventDefault();
+  const folderPath = await window.electronAPI.openFolderDialog();
+  if (folderPath) {
+    if (folderSelectionStatus) {
+      folderSelectionStatus.textContent = `Selected folder: ${folderPath}`;
     }
+    window.electronAPI.selectFolder(folderPath);
+  }
+});
+
+window.electronAPI.onFileContentUpdated((event: Event, newJsonData: string) => {
+  try {
+    const parsedData = JSON.parse(newJsonData);
+    jsonData = { ...jsonData, ...parsedData }; // Merge with existing data (example)
+    jsonContent.value = JSON.stringify(jsonData, null, 2);
+  } catch (err) {
+    console.error('Error updating content:', err);
+    jsonContent.value = `ERROOOOOOOOOOOOOOOOOOOOOOOOOR, \n\n\n ${err}`
   }
 });

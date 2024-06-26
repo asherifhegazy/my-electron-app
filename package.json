@@ -29,6 +29,7 @@
     "typescript": "^5.5.2"
   },
   "dependencies": {
+    "chokidar": "^3.6.0",
     "electron-squirrel-startup": "^1.0.1"
   }
 }

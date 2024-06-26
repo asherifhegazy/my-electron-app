@@ -2,8 +2,14 @@ import path from "node:path";
 import { BrowserWindow } from "electron";
 
 export class WindowManager {
+  private mainWindow: BrowserWindow | null = null;
+
+  getMainWindow(): BrowserWindow | null {
+    return this.mainWindow;
+  }
+  
   createMainWindow(): BrowserWindow {
-    const mainWindow = new BrowserWindow({
+    this.mainWindow = new BrowserWindow({
       width: 800,
       height: 600,
       webPreferences: {
@@ -13,10 +19,10 @@ export class WindowManager {
       },
     });
 
-    mainWindow.loadFile("public/index.html");
-    mainWindow.webContents.openDevTools();
+    this.mainWindow.loadFile("public/index.html");
+    this.mainWindow.webContents.openDevTools();
 
-    return mainWindow;
+    return this.mainWindow;
   }
 
   // Add more window creation/management methods here as needed

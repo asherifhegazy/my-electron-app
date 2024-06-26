@@ -1,9 +1,10 @@
 import { BrowserWindow, app } from "electron";
 import { IpcHandler } from "../ipc-handlers";
 import { WindowManager } from "./windows";
+import { FileManager } from "../utils/file-utils";
 
 const windowManager = new WindowManager(); // Create an instance of WindowManager
-const ipcHandler = new IpcHandler(); // Create an instance of IpcHandler and register all handlers
+const ipcHandler = new IpcHandler(new FileManager(), windowManager); // Create an instance of IpcHandler and register all handlers
 
 app.whenReady().then(() => {
   windowManager.createMainWindow(); // Create the main window

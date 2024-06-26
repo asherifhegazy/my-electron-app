@@ -1,5 +1,8 @@
 interface Window {
   electronAPI: {
-    readJsonFile: (filePath: string) => Promise<string>;
+    selectFolder: (folderPath: string) => void;
+    openFolderDialog: () => Promise<string>;
+    onFileContentUpdated: (callback: (event: IpcRendererEvent, data: string) => void) => void;
+    stopWatchingFolder: (folderPath: string) => void;
   };
 }
