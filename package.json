@@ -2,7 +2,7 @@
   "name": "my-electron-app",
   "version": "1.0.0",
   "description": "Test ElectronJS",
-  "main": "dist/main.js",
+  "main": "dist/main/main.js",
   "scripts": {
     "start": "tsc && electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",

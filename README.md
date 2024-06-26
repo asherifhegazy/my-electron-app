@@ -82,6 +82,11 @@ npm install
 yarn install
 ```
 
+### Run the Application
+```sh
+npm run start
+```
+
 ### Building the Application
 
 To package the application, run:
