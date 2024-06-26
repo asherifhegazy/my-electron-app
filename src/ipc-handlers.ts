@@ -7,7 +7,7 @@ export class IpcHandler {
   }
 
   private registerHandlers(): void {
-    ipcMain.handle("read-file", (_, filePath: string) =>
+    ipcMain.handle("read-json-file", (_, filePath: string) =>
       FileUtils.readJsonFile(filePath),
     );
     // Add more handlers as needed...

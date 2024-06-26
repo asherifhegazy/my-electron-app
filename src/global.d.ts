@@ -1,5 +1,5 @@
 interface Window {
   electronAPI: {
-    readFile: (filePath: string) => Promise<string>;
+    readJsonFile: (filePath: string) => Promise<string>;
   };
 }

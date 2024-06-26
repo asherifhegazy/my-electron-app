@@ -8,8 +8,7 @@ fileInput.addEventListener("change", async (event: Event) => {
   const file = target.files?.[0];
   if (file) {
     try {
-      const fileContent = await window.electronAPI.readFile(file.path);
-      const jsonData = JSON.parse(fileContent);
+      const jsonData = await window.electronAPI.readJsonFile(file.path);
       jsonContent.value = JSON.stringify(jsonData, null, 2);
     } catch (error) {
       jsonContent.value = "Error reading or parsing file!";
