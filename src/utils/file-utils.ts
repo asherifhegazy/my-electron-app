@@ -1,4 +1,3 @@
-// src/file-utils.ts
 import fs from "node:fs";
 
 // biome-ignore lint/complexity/noStaticOnlyClass: <explanation>

@@ -1,5 +1,4 @@
 import path from "node:path";
-// src/main/windows.ts
 import { BrowserWindow } from "electron";
 
 export class WindowManager {
