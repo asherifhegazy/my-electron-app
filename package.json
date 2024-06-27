@@ -4,7 +4,8 @@
   "description": "Test ElectronJS",
   "main": "dist/main/main.js",
   "scripts": {
-    "start": "tsc && electron-forge start",
+    "start": "npm run build && electron-forge start",
+    "build": "tsc && copyfiles --up 1 src/views/*.html dist && copyfiles --up 1 src/views/**/*.html dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "tsc && electron-forge package",
     "make": "tsc && electron-forge make",
@@ -25,6 +26,7 @@
     "@types/electron": "^1.6.10",
     "@types/electron-squirrel-startup": "^1.0.2",
     "@types/node": "^20.14.8",
+    "copyfiles": "^2.4.1",
     "electron": "^30.0.9",
     "typescript": "^5.5.2"
   },

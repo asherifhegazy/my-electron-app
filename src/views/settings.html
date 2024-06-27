@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Settings</title>
+    <style>
+      body { 
+        font-family: sans-serif;
+      }
+      h1 { 
+        text-align: left; 
+        font-size: 24px; 
+        margin-bottom: 20px;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+      .setting {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px; 
+      }
+      label {
+        width: 200px;
+      }
+      input[type="text"] {
+        flex-grow: 1;
+        margin-right: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 8px 12px;
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+      .button-container {
+        display: flex;
+        justify-content: flex-end; 
+        margin-top: 20px; 
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Settings</h1>
+    <div class="container">
+      <div class="setting">
+        <label for="jsonFolderPath">JSON Files Folder Path:</label>
+        <input type="text" id="jsonFolderPath" readonly />
+        <button id="browseJsonFolder">Browse</button>
+      </div>
+      <div class="setting">
+        <label for="txtFolderPath">TXT Files Folder Path:</label>
+        <input type="text" id="txtFolderPath" readonly />
+        <button id="browseTxtFolder">Browse</button>
+      </div>
+      <div class="button-container">
+        <button id="cancelSettings">Cancel</button>
+        <button id="saveSettings">Save</button>
+      </div>
+    </div>
+    <script src="../renderers/settings.js"></script> 
+  </body>
+</html>
