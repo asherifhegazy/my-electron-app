@@ -33,5 +33,37 @@
   "dependencies": {
     "chokidar": "^3.6.0",
     "electron-squirrel-startup": "^1.0.1"
+  },
+  "config": {
+    "forge": {
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "platforms": [
+            "win32"
+          ],
+          "config": {
+            "name": "my-electron-app",
+            "icon": "resources/icon.ico"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "platforms": [
+            "linux"
+          ],
+          "config": {
+            "name": "my-electron-app",
+            "icon": "resources/icon.ico"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        }
+      ]
+    }
   }
 }
